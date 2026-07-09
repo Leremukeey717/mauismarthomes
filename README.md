@@ -7,6 +7,10 @@ A single-page site for Maui Smart Homes, a Maui-based home automation & AV integ
 - `index.html` — the entire site (markup, styles, and the mobile-menu script are all in this one file)
 - `assets/logo.png` — full brand mark (icon + wordmark), used in the hero
 - `assets/icon.png` — cropped icon-only mark, used in the nav, footer, and favicon
+- `assets/wordmark.png` — text-only wordmark, used in the header nav
+- `assets/smart_home_3.jpg` — isometric smart home illustration, used in the hero
+- `assets/home_tv.jpg` — home theater photo, used in the showcase row
+- `assets/smart_home_2.jpg` — smart home touchscreen photo, used in the showcase row
 
 ## Edit the content
 
