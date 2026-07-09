@@ -93,9 +93,6 @@
   .logo-mark{
     width:38px; height:38px; border-radius:7px; object-fit:cover;
   }
-  .logo-wordmark{
-    height:22px; width:auto;
-  }
   .nav-links{
     display:flex; align-items:center; gap:32px; list-style:none;
     margin:0; padding:0;
@@ -166,14 +163,20 @@
     border-radius:3px;
     padding:26px;
   }
-  .hero-panel-image{
-    padding:0;
-    overflow:hidden;
-    line-height:0;
+  .hero-panel-label{
+    font-family:'Space Mono', monospace; font-size:0.72rem; letter-spacing:0.08em;
+    color:var(--fog); text-transform:uppercase; display:flex; justify-content:space-between;
+    margin-bottom:16px;
   }
-  .hero-panel-img{
-    width:100%; height:100%; object-fit:cover; display:block;
-    min-height:280px;
+  .waveform{
+    display:flex; align-items:flex-end; gap:3px; height:70px; margin-bottom:18px;
+  }
+  .waveform span{
+    flex:1; background:linear-gradient(180deg, var(--paper), var(--amber));
+    border-radius:1px; opacity:0.85;
+  }
+  .hero-panel p{
+    color:var(--fog); font-size:0.9rem; margin:0;
   }
 
   /* ---------- Stats ---------- */
@@ -182,11 +185,22 @@
     background:var(--surface);
   }
   .stats-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:1px;
-    background:var(--line);
+    display:grid; grid-template-columns:repeat(4, 1fr);
   }
-  .stat-img{
-    width:100%; height:340px; object-fit:cover; display:block;
+  .stat{
+    padding:44px 28px;
+    border-left:1px solid var(--line);
+    text-align:left;
+  }
+  .stat:first-child{border-left:none;}
+  .stat-num{
+    font-family:'Space Mono', monospace; font-weight:700;
+    font-size:clamp(1.6rem, 3vw, 2.3rem);
+    color:var(--amber);
+    display:block;
+  }
+  .stat-label{
+    color:var(--fog); font-size:0.85rem; margin-top:8px; display:block;
   }
 
   /* ---------- Section shared ---------- */
@@ -219,6 +233,33 @@
   }
   .principle h3{font-size:1.2rem; color:var(--paper); margin:14px 0 10px;}
   .principle p{color:var(--fog); font-size:0.92rem; margin:0;}
+
+  /* ---------- Link cards (work / approach) ---------- */
+  .cards{
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .card{
+    border:1px solid var(--line); border-radius:3px; overflow:hidden;
+    background:var(--surface);
+    text-decoration:none; color:inherit;
+    display:flex; flex-direction:column;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .card:hover{border-color:var(--amber); transform:translateY(-3px);}
+  .card-art{
+    height:190px;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(112,74,158,0.35), transparent 55%),
+      radial-gradient(circle at 75% 80%, rgba(141,118,136,0.30), transparent 55%),
+      var(--surface-2);
+  }
+  .card-body{padding:28px;}
+  .card h3{font-size:1.3rem; color:var(--paper); margin-bottom:10px;}
+  .card p{color:var(--fog); font-size:0.92rem; margin:0 0 16px;}
+  .card-link{
+    font-family:'Space Mono', monospace; font-size:0.8rem; color:var(--amber);
+  }
 
   /* ---------- Contact / footer ---------- */
   .contact{
@@ -260,10 +301,12 @@
     .menu-toggle{display:block;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-panel{order:-1;}
-    .stats-grid{grid-template-columns:1fr;}
-    .stat-img{height:220px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(3){border-left:none;}
+    .stat{border-bottom:1px solid var(--line);}
     .relationship{grid-template-columns:1fr;}
     .principles-list{grid-template-columns:1fr;}
+    .cards{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
     section{padding:64px 0;}
   }
@@ -275,16 +318,17 @@
   <nav class="wrap">
     <a href="#top" class="logo">
       <img src="assets/icon.png" alt="" class="logo-mark" aria-hidden="true">
-      <img src="assets/wordmark.png" alt="Maui Smart Homes" class="logo-wordmark">
+      Maui Smart Homes
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#approach">Approach</a></li>
+      <li><a href="#work">Our work</a></li>
       <li><a href="#principles">Principles</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#contact" class="btn">Let's Talk</a>
+      <a href="#contact" class="btn">Get a quote</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </nav>
@@ -298,25 +342,46 @@
         <img src="assets/logo.png" alt="Maui Smart Homes" class="hero-logo">
         <div class="eyebrow">
           <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-          Maui-based
+          Maui-based · Est. 2010
         </div>
-        <h1>Custom smart home solutions for <em>every lifestyle.</em></h1>
+        <h1>Home systems tuned for <em>island living.</em></h1>
         <p class="hero-copy">We design and install whole-home audio, video, lighting, and networking systems for houses across Maui — wired clean, labeled clearly, and built to work quietly for years.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn">Let's Talk</a>
-          <a href="#approach" class="btn btn-ghost">Learn more</a>
+          <a href="#contact" class="btn">Get a quote</a>
+          <a href="#work" class="btn btn-ghost">See our work</a>
         </div>
       </div>
-      <div class="hero-panel hero-panel-image">
-        <img src="assets/smart_home_3.jpg" alt="Isometric illustration of a connected smart home" class="hero-panel-img">
+      <div class="hero-panel">
+        <div class="hero-panel-label"><span>Signal check</span><span>Live</span></div>
+        <div class="waveform" aria-hidden="true">
+          <span style="height:30%"></span><span style="height:65%"></span><span style="height:45%"></span>
+          <span style="height:90%"></span><span style="height:55%"></span><span style="height:75%"></span>
+          <span style="height:35%"></span><span style="height:60%"></span><span style="height:80%"></span>
+          <span style="height:40%"></span><span style="height:70%"></span><span style="height:50%"></span>
+        </div>
+        <p>Every install ends with a walkthrough — every zone, every remote, every setting explained in plain language.</p>
       </div>
     </div>
   </section>
 
   <section class="stats">
     <div class="wrap stats-grid">
-      <img src="assets/home_tv.jpg" alt="Home theater installation with in-wall speakers and wood paneling" class="stat-img">
-      <img src="assets/smart_home_2.jpg" alt="Person controlling smart home settings on a touchscreen interface" class="stat-img">
+      <div class="stat">
+        <span class="stat-num mono">200+</span>
+        <span class="stat-label">Homes wired</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num mono">15</span>
+        <span class="stat-label">Years on Maui</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num mono">4.9★</span>
+        <span class="stat-label">Average rating</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num mono">24 hr</span>
+        <span class="stat-label">Service response</span>
+      </div>
     </div>
   </section>
 
@@ -359,30 +424,67 @@
         <div class="principle">
           <span class="principle-num mono">04</span>
           <h3>We answer the phone</h3>
-          <p>Our commitment is simple: be available, responsive, and reliable for you and your contractors.</p>
+          <p>If something stops working, you'll reach a person who knows your system — not a call queue.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Explore</span>
+        <h2>Recent work &amp; how we get there</h2>
+      </div>
+      <div class="cards">
+        <a href="#contact" class="card">
+          <div class="card-art" aria-hidden="true">
+            <div class="eq" style="height:34px; gap:6px;">
+              <span style="width:6px;"></span><span style="width:6px;"></span><span style="width:6px;"></span><span style="width:6px;"></span><span style="width:6px;"></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Our work</h3>
+            <p>Home theaters, whole-house audio, lighting scenes, and networks installed across Maui — from Kula upcountry to beachfront in Kihei.</p>
+            <span class="card-link">View recent projects →</span>
+          </div>
+        </a>
+        <a href="#contact" class="card">
+          <div class="card-art" aria-hidden="true">
+            <div class="eq" style="height:34px; gap:6px;">
+              <span style="width:6px;"></span><span style="width:6px;"></span><span style="width:6px;"></span><span style="width:6px;"></span><span style="width:6px;"></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Our approach</h3>
+            <p>A four-step process — walkthrough, design, install, handoff — built to keep surprises out of your project.</p>
+            <span class="card-link">See how we work →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <section class="contact" id="contact">
     <div class="wrap contact-grid">
       <div>
         <span class="kicker">Get in touch</span>
         <h2>Let's talk about your home.</h2>
         <p>Tell us about your space and what you're trying to fix or add — we'll get back to you within a business day with next steps.</p>
         <div class="contact-actions">
-          <a href="tel:+18085005952" class="btn">Call (808) 500-5952</a>
-          <a href="mailto:luke@mauismarthomes.com" class="btn btn-ghost">Email us</a>
+          <a href="tel:+18085550142" class="btn">Call (808) 555-0142</a>
+          <a href="mailto:aloha@mauismarthomes.com" class="btn btn-ghost">Email us</a>
         </div>
       </div>
       <dl class="contact-detail">
         <dt>Service area</dt>
-        <dd>All of Maui — Wailuku, Kahului, Kihei, Lahaina, Upcountry &amp; more</dd>
+        <dd>All of Maui — Wailuku, Kahului, Kihei, Lahaina, Upcountry &amp; beyond</dd>
         <dt>Phone</dt>
-        <dd><a href="tel:+18085005952">(808) 500-5952</a></dd>
+        <dd><a href="tel:+18085550142">(808) 555-0142</a></dd>
         <dt>Email</dt>
-        <dd><a href="mailto:luke@mauismarthomes.com">luke@mauismarthomes.com</a></dd>
+        <dd><a href="mailto:aloha@mauismarthomes.com">aloha@mauismarthomes.com</a></dd>
+        <dt>Hours</dt>
+        <dd>Mon–Fri, 8am–5pm HST · Emergency service by request</dd>
       </dl>
     </div>
   </section>
@@ -397,6 +499,7 @@
     </a>
     <ul class="footer-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our work</a></li>
       <li><a href="#principles">Principles</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
