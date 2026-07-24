@@ -91,7 +91,7 @@
     color:var(--paper);
   }
   .logo-mark{
-    width:38px; height:38px; border-radius:7px; object-fit:cover;
+    width:46px; height:46px; border-radius:8px; object-fit:cover;
   }
   .logo-wordmark{
     height:44px; width:auto;
@@ -129,7 +129,7 @@
   /* ---------- Hero ---------- */
   .hero{
     position:relative;
-    padding:56px 0 90px;
+    padding:32px 0 90px;
     overflow:hidden;
     background:
       radial-gradient(ellipse at 15% 0%, rgba(112,74,158,0.28), transparent 55%),
@@ -137,20 +137,23 @@
       var(--ink);
     border-bottom:1px solid var(--line);
   }
+  .hero-brand{
+    text-align:center;
+    margin-bottom:44px;
+  }
   .hero-grid{
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:end;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;
   }
   .hero-logo{
     display:block;
-    width:195px; height:auto;
-    margin-top:0; margin-bottom:28px;
-    margin-left:auto; margin-right:auto;
+    width:273px; height:auto;
+    margin:0 auto 20px;
     filter:drop-shadow(0 12px 24px rgba(0,0,0,0.35));
   }
   .eyebrow{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
     text-transform:uppercase; letter-spacing:0.16em; font-size:0.76rem;
-    color:var(--amber); margin-bottom:22px;
+    color:var(--amber); margin-bottom:0;
   }
   .hero h1{
     font-size:clamp(2.4rem, 5vw, 4rem);
@@ -159,8 +162,10 @@
   }
   .hero h1 em{color:var(--teal); font-style:normal;}
   .hero-copy{
-    color:var(--fog); font-size:1.05rem; max-width:38ch; margin-top:22px;
+    color:var(--fog); font-size:1.05rem; max-width:44ch; margin-top:22px;
   }
+  .hero-copy p{margin:0 0 14px;}
+  .hero-copy p:last-child{margin-bottom:0;}
   .hero-actions{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;}
 
   .hero-panel{
@@ -214,7 +219,7 @@
     background:var(--ink); padding:36px 32px;
   }
   .principle-num{
-    font-family:'Space Mono', monospace; color:var(--amber); font-size:0.85rem;
+    font-family:'Space Mono', monospace; color:var(--amber); font-size:1.02rem;
   }
   .principle h3{font-size:1.2rem; color:var(--paper); margin:14px 0 10px;}
   .principle p{color:var(--fog); font-size:0.92rem; margin:0;}
@@ -277,13 +282,13 @@
       <img src="assets/wordmark.png" alt="Maui Smart Homes" class="logo-wordmark">
     </a>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#principles">Principles</a></li>
+      <li><a href="#services">What We Do</a></li>
+      <li><a href="#approach">Philosophy</a></li>
+      <li><a href="#principles">How We Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#contact" class="btn">Let's Talk</a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luke@mauismarthomes.com" target="_blank" rel="noopener" class="btn">Send us a message</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </nav>
@@ -291,18 +296,23 @@
 
 <main id="top">
 
-  <section class="hero" id="services">
+  <section class="hero">
+    <div class="wrap hero-brand">
+      <img src="assets/logo.png" alt="Maui Smart Homes" class="hero-logo">
+      <div class="eyebrow">
+        <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+        North Shore based | Island wide service
+      </div>
+    </div>
     <div class="wrap hero-grid">
       <div>
-        <img src="assets/logo.png" alt="Maui Smart Homes" class="hero-logo">
-        <div class="eyebrow">
-          <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-          North Shore based | Island wide service
+        <h1>Build your home into the 21st century. <em>Custom home technology for you.</em></h1>
+        <div class="hero-copy">
+          <p>Technology should make your home simpler, more comfortable, and ready for the future. MSH builds smart home systems tailored to your lifestyle.</p>
+          <p>Whether you're building a new home or updating an existing one, we deliver solutions that blend into your home and enhance your life. Build your daily life for the future.</p>
         </div>
-        <h1>Custom smart home solutions for <em>every lifestyle.</em></h1>
-        <p class="hero-copy">We design and install whole-home audio, video, lighting, and networking systems for houses across Maui — wired clean, labeled clearly, and built to work quietly for years.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn">Let's Talk</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luke@mauismarthomes.com" target="_blank" rel="noopener" class="btn">Send us a message</a>
         </div>
       </div>
       <div class="hero-panel hero-panel-image">
@@ -311,23 +321,71 @@
     </div>
   </section>
 
-  <section class="stats">
-    <div class="wrap stats-grid">
-      <img src="assets/home_tv.jpg" alt="Home theater installation with in-wall speakers and wood paneling" class="stat-img">
-      <img src="assets/smart_home_2.jpg" alt="Person controlling smart home settings on a touchscreen interface" class="stat-img">
+  <section class="principles" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Smart Home Technology</span>
+        <h2>What we do</h2>
+      </div>
+      <div class="principles-list">
+        <div class="principle">
+          <span class="principle-num mono">1</span>
+          <h3>TV Installs</h3>
+          <p>From sleek wall-mounted displays to hidden wiring, we create clean entertainment spaces built to perform. Hardwired connections help keep your streaming fast and reliable.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">2</span>
+          <h3>Surround Sound</h3>
+          <p>Watch movies how they were intended. Listen to dialogue clearly, hear the plane fly overhead, hear the rumble of explosions. Experience the music of the soundtrack.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">3</span>
+          <h3>Home Audio</h3>
+          <p>Music that follows you throughout your home. From cooking and BBQs to relaxing after a long day, enjoy seamless audio in every space with an audio system for your daily life.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">4</span>
+          <h3>Surveillance</h3>
+          <p>Most homes want a video doorbell and surveillance cameras. See who comes to your home and what happens on the street in front of your house. Whether it's a fun prank, a surprise engagement, or a police incident, make sure it's recorded.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">5</span>
+          <h3>Wifi</h3>
+          <p>Homes need strong internet connections for video calls with family, streaming movies, and running a home business. We make sure all your devices have a strong connection.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">6</span>
+          <h3>Shades</h3>
+          <p>Automate your shades to rise and lower with the sun. You don't need to walk around to every window — let technology make your life easier.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">7</span>
+          <h3>Accent Lighting</h3>
+          <p>Bathroom toe-kick lighting, focused task lighting in the kitchen or workshop. A few accent lights will elevate your home.</p>
+        </div>
+        <div class="principle">
+          <span class="principle-num mono">8</span>
+          <h3>Home Automation</h3>
+          <p>Turn off everything when you leave. Control your garage door, locks, climate control, even vacuums from your phone or on a schedule.</p>
+        </div>
+      </div>
+      <div class="stats-grid" style="margin-top:56px;">
+        <img src="assets/home_tv.jpg" alt="Home theater installation with in-wall speakers and wood paneling" class="stat-img">
+        <img src="assets/smart_home_2.jpg" alt="Person controlling smart home settings on a touchscreen interface" class="stat-img">
+      </div>
     </div>
   </section>
 
-  <section id="approach">
+  <section id="approach" style="scroll-margin-top:160px;">
     <div class="wrap relationship">
       <div class="section-head" style="margin-bottom:0;">
-        <span class="kicker">More than an install</span>
-        <h2>Not just an AV company. Your home's technician for the long run.</h2>
+        <span class="kicker">Mutual respect</span>
+        <h2>Relationships that matter. We're here for you.</h2>
       </div>
       <div>
-        <p>Most of our work comes from homeowners we already know — a new zone added to a system we installed years ago, a router swapped out before it becomes a problem, a theater retuned after a remodel.</p>
-        <p>We keep it simple on purpose: fewer proprietary systems, more standards-based gear that any future technician can service. Your house shouldn't be locked to one company to keep working.</p>
-        <p>Every project starts with a walk-through of how you actually use the house, not a catalog of what we can sell you.</p>
+        <p>Coconut wireless exists for a reason. We want to design systems that you want and are happy with. Our first priority is putting a smile on your face. We're stoked when you're stoked.</p>
+        <p>We keep it simple on purpose: fewer proprietary systems, more gear that any future technician can service. Your house shouldn't be locked to one company to keep working. It's your house, let's keep it that way.</p>
+        <p>We believe in Murphy's Law. When issues arise, we will answer and do everything we can to help.</p>
       </div>
     </div>
   </section>
@@ -335,27 +393,27 @@
   <section class="principles" id="principles">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Our principles</span>
+        <span class="kicker">Guiding Principles</span>
         <h2>How we work</h2>
       </div>
       <div class="principles-list">
         <div class="principle">
-          <span class="principle-num mono">01</span>
-          <h3>We listen before we spec</h3>
-          <p>A system only earns its keep if it fits how you actually live. We start with questions, not a product list.</p>
+          <span class="principle-num mono">1</span>
+          <h3>We ask the right questions and <em>listen</em></h3>
+          <p>We start with questions, not a product list. A system only earns its keep if it fits how you actually live.</p>
         </div>
         <div class="principle">
-          <span class="principle-num mono">02</span>
+          <span class="principle-num mono">2</span>
           <h3>Clean installs, always</h3>
-          <p>Labeled wiring, tidy racks, no shortcuts hidden behind the wall. Work we'd be comfortable showing anyone.</p>
+          <p>Equipment organized, wires labeled, documentation for the homeowner, no shortcuts hidden behind the wall. Work we'd be comfortable showing anyone.</p>
         </div>
         <div class="principle">
-          <span class="principle-num mono">03</span>
+          <span class="principle-num mono">3</span>
           <h3>Built to grow</h3>
-          <p>Rooms get added, needs change. We design systems that expand without ripping out what came before.</p>
+          <p>We design a system you have control over. Not a proprietary system only we can service. MSH builds products that can be changed to fit your home's needs.</p>
         </div>
         <div class="principle">
-          <span class="principle-num mono">04</span>
+          <span class="principle-num mono">4</span>
           <h3>We answer the phone</h3>
           <p>Our commitment is simple: be available, responsive, and reliable for you and your contractors.</p>
         </div>
@@ -363,15 +421,18 @@
     </div>
   </section>
 
-
+  <section class="contact" id="contact">
     <div class="wrap contact-grid">
       <div>
         <span class="kicker">Get in touch</span>
-        <h2>Let's talk about your home.</h2>
-        <p>Tell us about your space and what you're trying to fix or add — we'll get back to you within a business day with next steps.</p>
+        <h2>Everything starts with a conversation.</h2>
+        <p>Tell us about your space and your vision. Whether it's mounting a TV or designing whole home automation, we've got it.</p>
         <div class="contact-actions">
-          <a href="tel:+18085005952" class="btn">Call (808) 500-5952</a>
-          <a href="mailto:luke@mauismarthomes.com" class="btn btn-ghost">Email us</a>
+          <a href="tel:+18085005952" class="btn" style="min-width:220px; text-align:center;">Call (808) 500-5952</a>
+        </div>
+        <div class="contact-actions" style="margin-top:14px;">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luke@mauismarthomes.com" target="_blank" rel="noopener" class="btn" style="min-width:220px; text-align:center;">Email us with Gmail</a>
+          <a href="mailto:luke@mauismarthomes.com" class="btn">Email us with Outlook</a>
         </div>
       </div>
       <dl class="contact-detail">
@@ -380,7 +441,7 @@
         <dt>Phone</dt>
         <dd><a href="tel:+18085005952">(808) 500-5952</a></dd>
         <dt>Email</dt>
-        <dd><a href="mailto:luke@mauismarthomes.com">luke@mauismarthomes.com</a></dd>
+        <dd><a href="https://mail.google.com/mail/?view=cm&fs=1&to=luke@mauismarthomes.com" target="_blank" rel="noopener">luke@mauismarthomes.com</a></dd>
       </dl>
     </div>
   </section>
@@ -394,8 +455,8 @@
       Maui Smart Homes
     </a>
     <ul class="footer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#principles">Principles</a></li>
+      <li><a href="#services">What We Do</a></li>
+      <li><a href="#principles">How We Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <span class="copyright">© 2026 Maui Smart Homes. All rights reserved.</span>
